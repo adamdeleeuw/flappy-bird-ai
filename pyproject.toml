@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "flappybird"
+version = "0.1.0"
+description = ""
+authors = ["Adam de Leeuw <adamdeleeuw06@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pygame = "^2.6.1"
+neat-python = "^0.92"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+flake8 = "^7.3.0"
+pytest = "^8.4.1"
+pre-commit = "^4.2.0"
+ipython = "^9.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
