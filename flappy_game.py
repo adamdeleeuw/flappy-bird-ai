@@ -10,8 +10,6 @@ pygame.font.init()
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
-GEN = 0 
-
 # list of bird images
 # .scale2x doubles the size of the images
 # .load loads the images - duhhh
@@ -186,10 +184,7 @@ def draw_window(win, birds, pipes, base, score, gen):
 
     pygame.display.update()
 
-def main(genomes, config):
-    global GEN #not ideal
-    GEN += 1
-
+def main(genomes, config, gen):
     nets = [] # keeps track of neural nets
     ge = [] #keeps track of genomes
     birds = []
@@ -272,7 +267,7 @@ def main(genomes, config):
                 ge.pop(x)   
         
         base.move()
-        draw_window(win, birds, pipes, base, score, GEN)
+        draw_window(win, birds, pipes, base, score, gen)
 
 
 
@@ -287,7 +282,13 @@ def run(config_path):
     stats = neat.StatisticsReporter()
     p.add_reporter(stats)
 
-    winner = p.run(main, 50)
+    gen_counter = [0] # using a mutable list to keep track of generations (inside int would be immutable)
+
+    def eval_genomes(genomes, config):
+        gen_counter[0] += 1
+        main(genomes, config, gen_counter[0])
+
+    winner = p.run(eval_genomes, 50)
 
 
 if __name__ == "__main__":
