@@ -2,7 +2,7 @@ import pygame
 import neat
 pygame.font.init()
 
-from constants import WIN_WIDTH, WIN_HEIGHT
+from constants import WIN_WIDTH, WIN_HEIGHT, MAX_SCORE
 from bird import Bird
 from pipe import Pipe
 from base import Base
@@ -88,7 +88,11 @@ def main(genomes, config, gen):
             if bird.y + bird.img.get_height() >= 730 or bird.y < 0:
                 birds.pop(x)
                 nets.pop(x)
-                ge.pop(x)   
+                ge.pop(x) 
+
+        if score >= MAX_SCORE:
+            run = False
+            break  
         
         base.move()
         draw_window(win, birds, pipes, base, score, gen)

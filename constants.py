@@ -8,6 +8,7 @@ WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
 IMG_DIR = "imgs"
+MAX_SCORE = 100
 
 # list of bird images
 # .scale2x doubles the size of the images

@@ -1,6 +1,7 @@
 import neat
 import os
 from flappy_game import main
+from visualize import plot_fitness
 
 def run(config_path):
     config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction, neat.DefaultSpeciesSet, neat.DefaultStagnation, config_path)
@@ -20,6 +21,8 @@ def run(config_path):
         main(genomes, config, gen_counter[0])
 
     winner = p.run(eval_genomes, 50)
+    
+    plot_fitness(stats)
 
 
 if __name__ == "__main__":
