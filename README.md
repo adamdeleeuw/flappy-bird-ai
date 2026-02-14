@@ -2,6 +2,8 @@
 
 An intelligent Flappy Bird implementation using neuroevolution through the NEAT (NeuroEvolution of Augmenting Topologies) algorithm. Watch as AI agents learn to navigate through pipes with increasing skill over generations.
 
+Followed this tutorial: [Watch here](https://www.youtube.com/watch?v=MMxFDaIOHsE)
+
 ## 🎥 Demo
 https://github.com/user-attachments/assets/3492d1dd-1c55-49f2-8348-700f29451c41
 
